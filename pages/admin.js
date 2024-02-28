@@ -1,6 +1,5 @@
 import Layout from "@/components/Layout";
 import quizData from "@/data/quizData";
-
 // {
 //     id: 1,
 //     question: "What is the capital of France?",

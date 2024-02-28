@@ -1,6 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-
-// import reducers
 import loginReducer from "./redux/login";
 
 export const store = configureStore({
@@ -9,3 +7,11 @@ export const store = configureStore({
     login: loginReducer,
   },
 });
+
+// Osäker på hur man kombinerar flera reducers? /Åsa
+
+// export default configureStore({
+//   reducer: {
+//     quiz: quizReducer
+//   }
+// });
