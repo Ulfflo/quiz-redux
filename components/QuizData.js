@@ -1,4 +1,4 @@
-const quizQuestions = [
+const quizData = [
   {
     id: 0,
     question: "What is the capital of France?",
@@ -204,5 +204,4 @@ const quizQuestions = [
   },
 ];
 
-
-export default quizQuestions;
+export default quizData;
