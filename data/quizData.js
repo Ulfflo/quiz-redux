@@ -1,15 +1,5 @@
 const quizData = [
   {
-    id: 0,
-    question: "What is the capital of France?",
-    options: [
-      { answer: "London", isCorrect: false },
-      { answer: "Berlin", isCorrect: false },
-      { answer: "Paris", isCorrect: true },
-      { answer: "Rome", isCorrect: false },
-    ],
-  },
-  {
     id: 1,
     question: "Which planet is known as the 'Red Planet'?",
     options: [
@@ -200,6 +190,17 @@ const quizData = [
       { answer: "Nile River", isCorrect: false },
       { answer: "Yangtze River", isCorrect: false },
       { answer: "Mississippi River", isCorrect: false },
+    ],
+  },
+
+  {
+    id: 20,
+    question: "What is the capital of France?",
+    options: [
+      { answer: "London", isCorrect: false },
+      { answer: "Berlin", isCorrect: false },
+      { answer: "Paris", isCorrect: true },
+      { answer: "Rome", isCorrect: false },
     ],
   },
 ];

@@ -2,7 +2,7 @@ import Head from "next/head";
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen flex justify-center items-center">
+    <div className="min-h-screen flex justify-center">
       <Head>
         <title>Apple Quiz</title>
       </Head>
