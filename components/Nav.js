@@ -6,40 +6,21 @@ const Header = () => {
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
         <div className="mb-4 md:mb-0 md:mr-10">
           <Link href="/" className="flex-col text-white no-underline">
-            <h1 className="text-2xl font-bold">Apple News</h1>
-            <p>We deliver the juice</p>
+            <h1 className="text-2xl font-bold">Apple Quiz</h1>
           </Link>
         </div>
         <nav className="md:space-x-16 space-x-8 md:text-xl">
           <Link
-            href="/sports"
+            href="/play"
             className="hover:text-gray-300 text-white no-underline"
           >
-            Sports
+            Play
           </Link>
           <Link
-            href="/food"
+            href="/admin"
             className="hover:text-gray-300 text-white no-underline"
           >
-            Food
-          </Link>
-          <Link
-            href="/economy"
-            className="hover:text-gray-300 text-white no-underline"
-          >
-            Economy
-          </Link>
-          <Link
-            href="/entertainment"
-            className="hover:text-gray-300 text-white no-underline"
-          >
-            Entertainment
-          </Link>
-          <Link
-            href="/bookmarks"
-            className="hover:text-gray-300 text-white no-underline"
-          >
-            Bookmarks
+            Admin
           </Link>
         </nav>
       </div>
