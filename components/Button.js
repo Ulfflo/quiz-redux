@@ -11,13 +11,13 @@ const Button = ({ onClick, children }) => {
   );
 };
 
-const StartQuizButton = ({ onClick }) => {
+const StartQuizButton = ({ onClick, children }) => {
   return (
     <button
       className="bg-green-500 hover:bg-green-800 text-white font-bold py-4 px-6 rounded shadow-lg"
       onClick={onClick}
     >
-      Start Quiz
+      {children}
     </button>
   );
 };
