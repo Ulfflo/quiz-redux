@@ -1,9 +1,12 @@
 import Layout from "@/components/Layout";
+import { StartQuizButton } from "@/components/Button";
 export default function Home() {
   return (
     <main>
       <Layout>
-        <div>Här ska det ligga en knapp</div>
+        <div>
+          <StartQuizButton>Start Quiz</StartQuizButton>{" "}
+        </div>
       </Layout>
     </main>
   );
