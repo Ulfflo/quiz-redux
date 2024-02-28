@@ -10,19 +10,24 @@ const Header = () => {
             <h1 className="text-2xl font-bold">Apple Quiz</h1>
           </Link>
         </div>
-        <nav className="md:space-x-16 space-x-8 md:text-xl hidden md:flex">
-          <Link
-            href="/play"
-            className="hover:text-gray-300 text-white no-underline"
-          >
-            Play
-          </Link>
-          <Link
-            href="/admin"
-            className="hover:text-gray-300 text-white no-underline"
-          >
-            Admin
-          </Link>
+        <nav>
+          <div className="md:space-x-16 space-x-8 md:text-xl hidden md:flex ">
+            <Link
+              href="/play"
+              className="hover:text-gray-300 text-white no-underline"
+            >
+              Play
+            </Link>
+            <Link
+              href="/admin"
+              className="hover:text-gray-300 text-white no-underline"
+            >
+              Admin
+            </Link>
+          </div>
+          <button className="md:hidden text-3xl bg-transparent border-none text-white">
+            <IoIosMenu />
+          </button>
         </nav>
       </div>
     </header>
