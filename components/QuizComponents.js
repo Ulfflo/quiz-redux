@@ -99,6 +99,110 @@ const quizQuestions = [
       { answer: "Mount Fuji", isCorrect: false },
     ],
   },
+  {
+    id: 10,
+    question:
+      "Which scientist is credited with discovering the process of electromagnetism?",
+    options: [
+      { answer: "Isaac Newton", isCorrect: false },
+      { answer: "James Clerk Maxwell", isCorrect: false },
+      { answer: "Michael Faraday", isCorrect: true },
+      { answer: "Albert Einstein", isCorrect: false },
+    ],
+  },
+  {
+    id: 11,
+    question: "Which of these is NOT a noble gas?",
+    options: [
+      { answer: "Helium", isCorrect: false },
+      { answer: "Neon", isCorrect: false },
+      { answer: "Argon", isCorrect: false },
+      { answer: "Nitrogene", isCorrect: true },
+    ],
+  },
+  {
+    id: 12,
+    question: "What is the largest organ in the human body by surface area?",
+    options: [
+      { answer: "Liver", isCorrect: false },
+      { answer: "Skin", isCorrect: true },
+      { answer: "Lungs", isCorrect: false },
+      { answer: "Large intestine", isCorrect: false },
+    ],
+  },
+  {
+    id: 13,
+    question:
+      "In Greek mythology, who is the god/goddess of wisdom and warfare?",
+    options: [
+      { answer: "Aphrodite", isCorrect: false },
+      { answer: "Hera", isCorrect: false },
+      { answer: "Athena", isCorrect: true },
+      { answer: "Artemis", isCorrect: false },
+    ],
+  },
+  {
+    id: 14,
+    question: "Which composer is famous for his 'Moonlight Sonata'?",
+    options: [
+      { answer: "Wolfgang Amadeus Mozart", isCorrect: false },
+      { answer: "Ludwig van Beethoven", isCorrect: true },
+      { answer: "Johann Sebastian Bach", isCorrect: false },
+      { answer: "Franz Schubert", isCorrect: false },
+    ],
+  },
+  {
+    id: 15,
+    question: "What is the chemical symbol for the element silver?",
+    options: [
+      { answer: "Si", isCorrect: false },
+      { answer: "Ag", isCorrect: true },
+      { answer: "Sn", isCorrect: false },
+      { answer: "Au", isCorrect: false },
+    ],
+  },
+  {
+    id: 16,
+    question: "Which planet in our solar system has the most moons?",
+    options: [
+      { answer: "Jupiter", isCorrect: true },
+      { answer: "Saturn", isCorrect: false },
+      { answer: "Uranus", isCorrect: false },
+      { answer: "Neptune", isCorrect: false },
+    ],
+  },
+  {
+    id: 17,
+    question: "Who was the first woman to win a Nobel Prize?",
+    options: [
+      { answer: "Marie Curie", isCorrect: true },
+      { answer: "Rosalind Franklin", isCorrect: false },
+      { answer: "Dorothy Crowfoot Hodgkin", isCorrect: false },
+      { answer: "Gerty Cori", isCorrect: false },
+    ],
+  },
+  {
+    id: 18,
+    question: "Which of these animals does NOT lay eggs?",
+    options: [
+      { answer: "Platypus", isCorrect: false },
+      { answer: "Komodo dragon", isCorrect: false },
+      { answer: "Seahorse", isCorrect: true },
+      { answer: "Platypus", isCorrect: false },
+    ],
+  },
+  {
+    id: 19,
+    question:
+      "What is the longest river in the world by discharge and drainage area?",
+    options: [
+      { answer: "Amazon River", isCorrect: true },
+      { answer: "Nile River", isCorrect: false },
+      { answer: "Yangtze River", isCorrect: false },
+      { answer: "Mississippi River", isCorrect: false },
+    ],
+  },
 ];
+
 
 export default quizQuestions;
