@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./AdminModal.module.css";
+import users from "@/data/users";
 
 const AdminModal = () => {
   const router = useRouter();
@@ -11,7 +12,10 @@ const AdminModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   const handleLogin = () => {
-    if (username === "a" && password === "p") {
+    const user = users.find(
+      (user) => user.username === username && user.password === password
+    );
+    if (user) {
       router.push("/admin");
       setIsModalOpen(false);
     } else {
@@ -36,7 +40,7 @@ const AdminModal = () => {
               type="text"
               id="username"
               value={username}
-              placeholder="username: a"
+              
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
@@ -46,7 +50,7 @@ const AdminModal = () => {
               type="password"
               id="password"
               value={password}
-              placeholder="password: p"
+              
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
