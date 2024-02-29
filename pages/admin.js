@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
-import quizData from "@/data/quizData";
 import { useSelector, useDispatch } from "react-redux";
 import { setEditingQuestion } from "@/redux/quizSlice";
+import quizData from "@/data/quizData";
 
 // {
 //     id: 1,
@@ -15,9 +15,9 @@ import { setEditingQuestion } from "@/redux/quizSlice";
 //   },
 
 export default function Admin() {
-  const quizData = useSelector((state) => state.quiz.quizData);
-  const editingQuestion = useSelector((state) => state.quiz.editingQuestion);
-  const dispatch = useDispatch();
+  // const quizData = useSelector((state) => state.quiz.quizData);
+  // const editingQuestion = useSelector((state) => state.quiz.editingQuestion);
+  // const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.darkMode);
 
   const handleEditClick = (questionId) => {
