@@ -3,11 +3,13 @@ import { IoIosMenu } from "react-icons/io";
 import { CiApple } from "react-icons/ci";
 import AdminModal from "./AdminModal";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import DarkModeButton from "./DarkModeBtn";
 
 const Header = () => {
   const darkMode = useSelector((state) => state.darkMode);
+  const router = useRouter();
   const [showModal, setShowModal] = useState(false);
  
 
@@ -19,6 +21,8 @@ const Header = () => {
   const closeModal = () => {
     setShowModal(false);
   };
+
+  const isAdminPage = router.pathname === "/admin";
 
   return (
     <header
@@ -44,15 +48,12 @@ const Header = () => {
             >
               Play
             </Link>
-          
+
             <button
               onClick={showModal ? closeModal : toggleModal}
               className="hover:text-gray-300 bg-green-600 border-none text-white no-underline text-xl"
-
-        
-            
             >
-              Admin
+              {isAdminPage ? "Close" : "Admin"}
             </button>
           </div>
           <button className="md:hidden text-3xl bg-transparent border-none text-green-50">
@@ -60,7 +61,7 @@ const Header = () => {
           </button>
         </nav>
       </div>
-      {showModal && <AdminModal onClose={closeModal}  />}
+      {showModal && <AdminModal onClose={closeModal} />}
       {/* Render the AdminModal component conditionally */}
     </header>
   );
