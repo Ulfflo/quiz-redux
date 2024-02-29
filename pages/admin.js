@@ -1,5 +1,8 @@
 import Layout from "@/components/Layout";
 import quizData from "@/data/quizData";
+import { useSelector, useDispatch } from "react-redux";
+import { setEditingQuestion } from "@/redux/quizSlice";
+
 // {
 //     id: 1,
 //     question: "What is the capital of France?",
@@ -12,6 +15,14 @@ import quizData from "@/data/quizData";
 //   },
 
 export default function Admin() {
+  const quizData = useSelector((state) => state.quiz.quizData);
+  const editingQuestion = useSelector((state) => state.quiz.editingQuestion);
+  const dispatch = useDispatch();
+
+  const handleEditClick = (questionId) => {
+    dispatch(setEditingQuestion(questionId));
+  };
+
   return (
     <>
       <Layout>
