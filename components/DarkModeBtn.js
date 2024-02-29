@@ -10,7 +10,11 @@ function DarkModeButton() {
     dispatch(toggleDarkMode());
   };
   return (
-    <DarkModeSwitch onChange={handleToggleDarkMode} checked={darkMode} />
+    <DarkModeSwitch
+      className="text-teal-50"
+      onChange={handleToggleDarkMode}
+      checked={darkMode}
+    />
 
     //   <button className={``} >
     //   {darkMode ? "Switch to light mode" : "Switch to dark mode"}
