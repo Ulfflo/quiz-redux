@@ -12,7 +12,7 @@ const Header = () => {
         </div>
         <nav className="md:space-x-16 space-x-8 md:text-xl hidden md:flex">
           <Link
-            href="/play"
+            href="/quizpage"
             className="hover:text-gray-300 text-white no-underline"
           >
             Play
