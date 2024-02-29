@@ -5,7 +5,7 @@ export default function Home() {
     <main>
       <Layout>
         <div>
-          <StartQuizButton>Let's Quiz</StartQuizButton>{" "}
+          <StartQuizButton>Start Quiz</StartQuizButton>
         </div>
       </Layout>
     </main>
