@@ -85,7 +85,7 @@ export default function Admin() {
                 {editMode && editedQuestion && editedQuestion.id === item.id ? (
                   <div>
                     <input
-                      classname="border-4"
+                      className="w-full mb-2 rounded-lg py-1 pl-2 border-none"
                       type="text"
                       name="question"
                       value={editedQuestion.question}
@@ -93,13 +93,15 @@ export default function Admin() {
                     />
                     <ul className="list-none">
                       {editedQuestion.options.map((option, optionIndex) => (
-                        <li key={optionIndex}>
+                        <li key={optionIndex} className="mb-2 ">
                           <input
+                            className="rounded-lg py-1 pl-2 border-none"
                             type="text"
                             value={option.answer}
                             onChange={(e) => handleOptionChange(optionIndex, e)}
                           />
                           <input
+                            className="ml-2 w-8 rounded checked:bg-yellow-500"
                             type="checkbox"
                             checked={option.isCorrect}
                             onChange={() =>
@@ -109,9 +111,29 @@ export default function Admin() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-2">
-                      <button onClick={handleSaveEdit}>Save</button>
-                      <button onClick={handleCancelEdit}>Cancel</button>
+                    <div className="mt-2 space-x-2">
+                      <button
+                        className={` ${
+                          darkMode
+                            ? "border-emerald-500 text-emerald-400"
+                            : "border-green-600 text-green-700"
+                        }                 
+border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opacity-50`}
+                        onClick={handleSaveEdit}
+                      >
+                        Save
+                      </button>
+                      <button
+                        className={` ${
+                          darkMode
+                            ? "border-emerald-500 text-emerald-400"
+                            : "border-green-600 text-green-700"
+                        }                 
+border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opacity-50`}
+                        onClick={handleCancelEdit}
+                      >
+                        Cancel
+                      </button>
                     </div>
                   </div>
                 ) : (

@@ -35,24 +35,27 @@ const Header = () => {
             <h1 className="text-2xl font-bold">Apple Quiz</h1>
           </Link>
         </div>
-        <nav className="md:space-x-16 space-x-8 md:text-xl hidden md:flex">
-          <Link
-            href="/quizpage"
-            className="hover:text-gray-300 text-white no-underline"
-          >
-            Play
-          </Link>
-
-          <div className="md:space-x-16 space-x-8 md:text-xl hidden md:flex ">
+        <nav className="flex items-center">
+          <DarkModeButton />
+          <div className="md:space-x-16 space-x-8 md:text-xl hidden md:flex  ">
+            <Link
+              href="/"
+              className="hover:text-gray-300 text-white no-underline"
+            >
+              Play
+            </Link>
+          
             <button
               onClick={showModal ? closeModal : toggleModal}
               className="hover:text-gray-300 bg-green-600 border-none text-white no-underline text-xl"
+
+        
+            
             >
               Admin
             </button>
           </div>
           <button className="md:hidden text-3xl bg-transparent border-none text-green-50">
-            <DarkModeButton />
             <IoIosMenu />
           </button>
         </nav>
