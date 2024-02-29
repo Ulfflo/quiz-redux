@@ -7,6 +7,14 @@ import { useSelector } from "react-redux";
 import DarkModeButton from "./DarkModeBtn";
 
 const Header = () => {
+  const darkMode = useSelector((state) => state.darkMode);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <header
       className={`py-4 whitespace-nowrap ${

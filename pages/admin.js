@@ -1,12 +1,8 @@
 import Layout from "@/components/Layout";
 import quizData from "@/data/quizData";
-<<<<<<< HEAD
 import { useSelector, useDispatch } from "react-redux";
 import { setEditingQuestion } from "@/redux/quizSlice";
 
-=======
-import { useSelector } from "react-redux";
->>>>>>> af0d1a421a7b0c785eed99cd35479344d15e8906
 // {
 //     id: 1,
 //     question: "What is the capital of France?",
@@ -19,18 +15,15 @@ import { useSelector } from "react-redux";
 //   },
 
 export default function Admin() {
-<<<<<<< HEAD
   const quizData = useSelector((state) => state.quiz.quizData);
   const editingQuestion = useSelector((state) => state.quiz.editingQuestion);
   const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.darkMode);
 
   const handleEditClick = (questionId) => {
     dispatch(setEditingQuestion(questionId));
   };
 
-=======
-  const darkMode = useSelector((state) => state.darkMode);
->>>>>>> af0d1a421a7b0c785eed99cd35479344d15e8906
   return (
     <>
       <Layout>
