@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { toggleDarkMode } from "@/redux/darkMode";
-// import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
 
 function DarkModeButton() {
   const darkMode = useSelector((state) => state.darkMode);
@@ -10,10 +10,11 @@ function DarkModeButton() {
     dispatch(toggleDarkMode());
   };
   return (
-    <button className={``} onClick={handleToggleDarkMode}>
-      {/* <DarkModeSwitch /> */}
-      {darkMode ? "Switch to light mode" : "Switch to dark mode"}
-    </button>
+    <DarkModeSwitch onChange={handleToggleDarkMode} checked={darkMode} />
+
+    //   <button className={``} >
+    //   {darkMode ? "Switch to light mode" : "Switch to dark mode"}
+    // </button>
   );
 }
 
