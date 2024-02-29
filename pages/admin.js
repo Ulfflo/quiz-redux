@@ -7,9 +7,9 @@ import {
   deleteQuestion,
   addQuestion,
 } from "@/redux/quizSlice";
-import quizData from "@/data/quizData";
 
 export default function Admin() {
+  const questions = useSelector((state) => state.quiz.quizData);
   const darkMode = useSelector((state) => state.darkMode);
   const dispatch = useDispatch();
   const [editMode, setEditMode] = useState(false);
@@ -74,7 +74,7 @@ export default function Admin() {
         <div>
           <h1 className="text-2xl font-bold mb-4">Admin page</h1>
           <div className="flex-col">
-            {quizData.map((item, index) => (
+            {questions.map((item, index) => (
               <div
                 className={`${
                   darkMode ? "bg-sky-950" : " bg-green-400"
@@ -85,6 +85,7 @@ export default function Admin() {
                 {editMode && editedQuestion && editedQuestion.id === item.id ? (
                   <div>
                     <input
+                      classname="border-4"
                       type="text"
                       name="question"
                       value={editedQuestion.question}
