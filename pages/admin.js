@@ -1,5 +1,182 @@
 import Layout from "@/components/Layout";
-import quizData from "@/data/quizData";
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setEditingQuestion,
+  editQuestion,
+  deleteQuestion,
+  addQuestion,
+} from "@/redux/quizSlice";
+
+export default function Admin() {
+  const questions = useSelector((state) => state.quiz.quizData);
+  const darkMode = useSelector((state) => state.darkMode);
+  const dispatch = useDispatch();
+  const [editMode, setEditMode] = useState(false);
+  const [editedQuestion, setEditedQuestion] = useState(null);
+
+  const handleEditClick = (question) => {
+    setEditedQuestion({ ...question });
+    setEditMode(true);
+  };
+
+  const handleDeleteClick = (questionId) => {
+    dispatch(deleteQuestion(questionId));
+  };
+
+  const handleSaveEdit = () => {
+    dispatch(
+      editQuestion({ id: editedQuestion.id, updatedQuestion: editedQuestion })
+    );
+    setEditMode(false);
+  };
+
+  const handleCancelEdit = () => {
+    setEditMode(false);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditedQuestion((prevQuestion) => ({
+      ...prevQuestion,
+      [name]: value,
+    }));
+  };
+
+  const handleOptionChange = (optionIndex, e) => {
+    const { value } = e.target;
+    setEditedQuestion((prevQuestion) => ({
+      ...prevQuestion,
+      options: prevQuestion.options.map((option, index) =>
+        index === optionIndex ? { ...option, answer: value } : option
+      ),
+    }));
+  };
+
+  const handleCorrectOptionChange = (optionIndex) => {
+    setEditedQuestion((prevQuestion) => ({
+      ...prevQuestion,
+      options: prevQuestion.options.map((option, index) =>
+        index === optionIndex
+          ? { ...option, isCorrect: !option.isCorrect }
+          : option
+      ),
+    }));
+  };
+
+  const handleAddQuestion = () => {
+    dispatch(addQuestion());
+  };
+
+  return (
+    <>
+      <Layout>
+        <div>
+          <h1 className="text-2xl font-bold mb-4">Admin page</h1>
+          <div className="flex-col">
+            {questions.map((item, index) => (
+              <div
+                className={`${
+                  darkMode ? "bg-sky-950" : " bg-green-400"
+                } w-[400px] p-8 mb-8 rounded-xl relative`}
+                key={index}
+                id={item.id}
+              >
+                {editMode && editedQuestion && editedQuestion.id === item.id ? (
+                  <div>
+                    <input
+                      classname="border-4"
+                      type="text"
+                      name="question"
+                      value={editedQuestion.question}
+                      onChange={handleInputChange}
+                    />
+                    <ul className="list-none">
+                      {editedQuestion.options.map((option, optionIndex) => (
+                        <li key={optionIndex}>
+                          <input
+                            type="text"
+                            value={option.answer}
+                            onChange={(e) => handleOptionChange(optionIndex, e)}
+                          />
+                          <input
+                            type="checkbox"
+                            checked={option.isCorrect}
+                            onChange={() =>
+                              handleCorrectOptionChange(optionIndex)
+                            }
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-2">
+                      <button onClick={handleSaveEdit}>Save</button>
+                      <button onClick={handleCancelEdit}>Cancel</button>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <p className="mb-2">
+                      Question {item.id}: {item.question}
+                    </p>
+                    <ul className="list-none">
+                      {item.options.map((option, optionIndex) => (
+                        <li
+                          key={optionIndex}
+                          className={option.isCorrect ? "font-bold" : ""}
+                        >
+                          {option.answer} {option.isCorrect ? "(correct)" : ""}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="absolute bottom-4 right-4 space-x-2">
+                      <button
+                        className={` ${
+                          darkMode
+                            ? "border-emerald-500 text-emerald-400"
+                            : "border-green-600 text-green-700"
+                        }                 
+                 border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opacity-50`}
+                        onClick={() => handleEditClick(item)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className={` ${
+                          darkMode
+                            ? "border-red-500 text-red-400"
+                            : "border-red-600 text-red-700"
+                        }                 
+                 border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opacity-50`}
+                        onClick={() => handleDeleteClick(item.id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="mt-4">
+            <button
+              className={` ${
+                darkMode
+                  ? "border-blue-500 text-blue-400"
+                  : "border-blue-600 text-blue-700"
+              }                 
+               border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opacity-50`}
+              onClick={handleAddQuestion}
+            >
+              Add Question
+            </button>
+          </div>
+        </div>
+      </Layout>
+    </>
+  );
+}
+
 // {
 //     id: 1,
 //     question: "What is the capital of France?",
@@ -10,43 +187,3 @@ import quizData from "@/data/quizData";
 //       { answer: "Rome", isCorrect: false },
 //     ],
 //   },
-
-export default function Admin() {
-  return (
-    <>
-      <Layout>
-        <div>
-          <h1 className="text-2xl font-bold mb-4">Admin page</h1>
-          <div className="flex-col">
-            {quizData.map((item, index) => (
-              <div
-                className="bg-green-400 w-[400px] p-8 mb-8 rounded-xl relative"
-                key={index}
-                id={item.id}
-              >
-                <p className="mb-2">
-                  Question {item.id}: {item.question}
-                </p>
-                <ul className="list-none">
-                  {item.options.map((option, optionIndex) => (
-                    <li
-                      key={optionIndex}
-                      className={option.isCorrect ? "font-bold" : ""}
-                    >
-                      {option.answer} {option.isCorrect ? "(correct)" : ""}
-                    </li>
-                  ))}
-                </ul>
-                <div className="absolute bottom-4 right-4">
-                  <button className="whitespace-nowrap bg-transparent border-solid border-green-600 text-green-700 rounded-lg px-4 py-1 active:opacity-50">
-                    Edit
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Layout>
-    </>
-  );
-}
