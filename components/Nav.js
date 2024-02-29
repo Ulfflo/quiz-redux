@@ -8,11 +8,16 @@ import DarkModeButton from "./DarkModeBtn";
 
 const Header = () => {
   const darkMode = useSelector((state) => state.darkMode);
-
   const [showModal, setShowModal] = useState(false);
+ 
 
   const toggleModal = () => {
     setShowModal(!showModal);
+    
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -37,13 +42,10 @@ const Header = () => {
           >
             Play
           </Link>
-          
 
-        
           <div className="md:space-x-16 space-x-8 md:text-xl hidden md:flex ">
-           
             <button
-              onClick={toggleModal}
+              onClick={showModal ? closeModal : toggleModal}
               className="hover:text-gray-300 bg-green-600 border-none text-white no-underline text-xl"
             >
               Admin
@@ -55,7 +57,7 @@ const Header = () => {
           </button>
         </nav>
       </div>
-      {showModal && <AdminModal />}{" "}
+      {showModal && <AdminModal onClose={closeModal}  />}
       {/* Render the AdminModal component conditionally */}
     </header>
   );
