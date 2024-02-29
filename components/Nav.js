@@ -37,21 +37,11 @@ const Header = () => {
           >
             Play
           </Link>
-          <Link
-            href="/admin"
-            className="hover:text-gray-300 text-white no-underline"
-          >
-            Admin
-          </Link>
+          
 
-        <nav>
+        
           <div className="md:space-x-16 space-x-8 md:text-xl hidden md:flex ">
-            <Link
-              href="/play"
-              className="hover:text-gray-300 text-white no-underline"
-            >
-              Play
-            </Link>
+           
             <button
               onClick={toggleModal}
               className="hover:text-gray-300 bg-green-600 border-none text-white no-underline text-xl"
