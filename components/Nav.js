@@ -3,17 +3,26 @@ import { IoIosMenu } from "react-icons/io";
 import { CiApple } from "react-icons/ci";
 import AdminModal from "./AdminModal";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import DarkModeButton from "./DarkModeBtn";
 
 const Header = () => {
   const darkMode = useSelector((state) => state.darkMode);
-
+  const router = useRouter();
   const [showModal, setShowModal] = useState(false);
+ 
 
   const toggleModal = () => {
     setShowModal(!showModal);
+    
   };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const isAdminPage = router.pathname === "/admin";
 
   return (
     <header
@@ -30,7 +39,6 @@ const Header = () => {
             <h1 className="text-2xl font-bold">Apple Quiz</h1>
           </Link>
         </div>
-
         <nav className="flex items-center">
           <DarkModeButton />
           <div className="md:space-x-16 space-x-8 md:text-xl hidden md:flex  ">
@@ -40,11 +48,12 @@ const Header = () => {
             >
               Play
             </Link>
+
             <button
-              onClick={toggleModal}
-              className="hover:text-gray-300 border-none text-white no-underline text-xl bg-transparent"
+              onClick={showModal ? closeModal : toggleModal}
+              className="hover:text-gray-300 bg-green-600 border-none text-white no-underline text-xl"
             >
-              Admin
+              {isAdminPage ? "Close" : "Admin"}
             </button>
           </div>
           <button className="md:hidden text-3xl bg-transparent border-none text-green-50">
@@ -52,7 +61,7 @@ const Header = () => {
           </button>
         </nav>
       </div>
-      {showModal && <AdminModal />}{" "}
+      {showModal && <AdminModal onClose={closeModal} />}
       {/* Render the AdminModal component conditionally */}
     </header>
   );
