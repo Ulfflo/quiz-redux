@@ -31,8 +31,9 @@ const Header = () => {
           </Link>
         </div>
 
-        <nav>
-          <div className="md:space-x-16 space-x-8 md:text-xl hidden md:flex ">
+        <nav className="flex items-center">
+          <DarkModeButton />
+          <div className="md:space-x-16 space-x-8 md:text-xl hidden md:flex  ">
             <Link
               href="/play"
               className="hover:text-gray-300 text-white no-underline"
@@ -41,13 +42,12 @@ const Header = () => {
             </Link>
             <button
               onClick={toggleModal}
-              className="hover:text-gray-300 bg-green-600 border-none text-white no-underline text-xl"
+              className="hover:text-gray-300 border-none text-white no-underline text-xl bg-transparent"
             >
               Admin
             </button>
           </div>
           <button className="md:hidden text-3xl bg-transparent border-none text-green-50">
-            <DarkModeButton />
             <IoIosMenu />
           </button>
         </nav>
