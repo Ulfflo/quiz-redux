@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { IoIosMenu } from "react-icons/io";
 import { CiApple } from "react-icons/ci";
+import AdminModal from "./AdminModal";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import DarkModeButton from "./DarkModeBtn";
 
 const Header = () => {
-  const darkMode = useSelector((state) => state.darkMode);
   return (
     <header
       className={`py-4 whitespace-nowrap ${
@@ -30,12 +31,12 @@ const Header = () => {
             >
               Play
             </Link>
-            <Link
-              href="/admin"
-              className="hover:text-gray-300 text-white no-underline"
+            <button
+              onClick={toggleModal}
+              className="hover:text-gray-300 bg-green-600 border-none text-white no-underline text-xl"
             >
               Admin
-            </Link>
+            </button>
           </div>
           <button className="md:hidden text-3xl bg-transparent border-none text-green-50">
             <DarkModeButton />
@@ -43,6 +44,8 @@ const Header = () => {
           </button>
         </nav>
       </div>
+      {showModal && <AdminModal />}{" "}
+      {/* Render the AdminModal component conditionally */}
     </header>
   );
 };
