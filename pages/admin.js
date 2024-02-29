@@ -1,8 +1,12 @@
 import Layout from "@/components/Layout";
 import quizData from "@/data/quizData";
+<<<<<<< HEAD
 import { useSelector, useDispatch } from "react-redux";
 import { setEditingQuestion } from "@/redux/quizSlice";
 
+=======
+import { useSelector } from "react-redux";
+>>>>>>> af0d1a421a7b0c785eed99cd35479344d15e8906
 // {
 //     id: 1,
 //     question: "What is the capital of France?",
@@ -15,6 +19,7 @@ import { setEditingQuestion } from "@/redux/quizSlice";
 //   },
 
 export default function Admin() {
+<<<<<<< HEAD
   const quizData = useSelector((state) => state.quiz.quizData);
   const editingQuestion = useSelector((state) => state.quiz.editingQuestion);
   const dispatch = useDispatch();
@@ -23,6 +28,9 @@ export default function Admin() {
     dispatch(setEditingQuestion(questionId));
   };
 
+=======
+  const darkMode = useSelector((state) => state.darkMode);
+>>>>>>> af0d1a421a7b0c785eed99cd35479344d15e8906
   return (
     <>
       <Layout>
@@ -31,7 +39,9 @@ export default function Admin() {
           <div className="flex-col">
             {quizData.map((item, index) => (
               <div
-                className="bg-green-400 w-[400px] p-8 mb-8 rounded-xl relative"
+                className={`${
+                  darkMode ? "bg-sky-950" : " bg-green-400"
+                } w-[400px] p-8 mb-8 rounded-xl relative`}
                 key={index}
                 id={item.id}
               >
@@ -49,7 +59,14 @@ export default function Admin() {
                   ))}
                 </ul>
                 <div className="absolute bottom-4 right-4">
-                  <button className="whitespace-nowrap bg-transparent border-solid border-green-600 text-green-700 rounded-lg px-4 py-1 active:opacity-50">
+                  <button
+                    className={` ${
+                      darkMode
+                        ? "border-emerald-500 text-emerald-400"
+                        : "border-green-600 text-green-700"
+                    }                 
+                 border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opacity-50`}
+                  >
                     Edit
                   </button>
                 </div>
