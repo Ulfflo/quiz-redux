@@ -13,6 +13,7 @@ const AdminModal = () => {
   const handleLogin = () => {
     if (username === "a" && password === "p") {
       router.push("/admin");
+      setIsModalOpen(false);
     } else {
       setError("Invalid username or password");
     }
