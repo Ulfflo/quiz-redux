@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { StartQuizButton } from "@/components/Button";
 import { FaArrowDownLong } from "react-icons/fa6";
+import ScoreBoard from "@/components/ScoreBoard";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <div className="text-center">
           <StartQuizButton>Start Quiz</StartQuizButton>
         </div>
+        <ScoreBoard />
       </Layout>
     </main>
   );
