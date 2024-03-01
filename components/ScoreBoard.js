@@ -1,22 +1,25 @@
 import { useSelector } from "react-redux";
-import playerScore from "@/data/playerScore";
+import playerScores from "@/data/playerScores";
 
 function ScoreBoard() {
   const darkMode = useSelector((state) => state.darkMode);
 
-  const sortedScores = playerScore.slice().sort((a, b) => b.score - a.score);
+  const sortedScores = playerScores.slice().sort((a, b) => b.score - a.score);
+
+  const topFiveScores = sortedScores.slice(0, 5);
   return (
     <div
       className={`${
         darkMode ? "bg-sky-950" : " bg-green-400"
       } w-[400px] p-8 m-20 rounded-xl relative flex-col`}
     >
-      <h2 className="text-2xl font-bold mb-4 text-center">Top 5 Scores! </h2>
-      <ul>
-        {sortedScores &&
-          sortedScores.map((player, index) => (
-            <li key={index}>
-              {player.name}: {player.score}
+      <h2 className="text-2xl font-bold mb-10 text-center">Top 5 Scores! </h2>
+      <ul className="list-none">
+        {topFiveScores &&
+          topFiveScores.map((player, index) => (
+            <li key={index} className="m-5 text-xl">
+              <span>{index + 1}. </span>
+              {player.name}: {player.score} <span>p</span>
             </li>
           ))}
       </ul>
