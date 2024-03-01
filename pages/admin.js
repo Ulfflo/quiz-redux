@@ -9,9 +9,10 @@ import {
 } from "@/redux/quizSlice";
 
 export default function Admin() {
+  const dispatch = useDispatch();
+
   const questions = useSelector((state) => state.quiz.quizData);
   const darkMode = useSelector((state) => state.darkMode);
-  const dispatch = useDispatch();
   const [editMode, setEditMode] = useState(false);
   const [editedQuestion, setEditedQuestion] = useState(null);
 
@@ -29,6 +30,7 @@ export default function Admin() {
       editQuestion({ id: editedQuestion.id, updatedQuestion: editedQuestion })
     );
     setEditMode(false);
+    setEditedQuestion(null);
   };
 
   const handleCancelEdit = () => {
@@ -56,16 +58,30 @@ export default function Admin() {
   const handleCorrectOptionChange = (optionIndex) => {
     setEditedQuestion((prevQuestion) => ({
       ...prevQuestion,
-      options: prevQuestion.options.map((option, index) =>
-        index === optionIndex
-          ? { ...option, isCorrect: !option.isCorrect }
-          : option
+      options: prevQuestion.options.map(
+        (option, index) =>
+          index === optionIndex
+            ? { ...option, isCorrect: true } // Set the current option to true
+            : { ...option, isCorrect: false } // Set all other options to false
       ),
     }));
   };
 
   const handleAddQuestion = () => {
+    const newQuestion = {
+      id: questions.length + 1,
+      question: "New Question",
+      options: [
+        { answer: "Option 1", isCorrect: false },
+        { answer: "Option 2", isCorrect: false },
+        { answer: "Option 3", isCorrect: false },
+        { answer: "Option 4", isCorrect: false },
+      ],
+    };
+
     dispatch(addQuestion());
+    setEditedQuestion({ ...newQuestion });
+    setEditMode(true);
   };
 
   return (
@@ -101,8 +117,9 @@ export default function Admin() {
                             onChange={(e) => handleOptionChange(optionIndex, e)}
                           />
                           <input
-                            className="ml-2 w-8 rounded checked:bg-yellow-500"
-                            type="checkbox"
+                            className="ml-2 w-8 rounded checked:text-yellow-500"
+                            type="radio"
+                            name="correctOption"
                             checked={option.isCorrect}
                             onChange={() =>
                               handleCorrectOptionChange(optionIndex)
