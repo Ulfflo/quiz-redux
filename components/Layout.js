@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
         darkMode
           ? " bg-slate-950 ring-2 text-teal-100 ring-teal-500 ring-opacity-90"
           : "bg-slate-50"
-      } min-h-screen flex items-center justify-center content-center w-full`}
+      } min-h-[500px] flex items-center justify-center content-center w-full`}
     >
       <Head>
         <title>Apple Quiz</title>
