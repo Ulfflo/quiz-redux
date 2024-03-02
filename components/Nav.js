@@ -63,7 +63,7 @@ const Header = () => {
           <nav className="flex items-center">
             <div className="md:space-x-16 space-x-8 text-[18px] hidden md:flex  ">
               <Link
-                href="/"
+                href="/quizpage"
                 className="hover:text-gray-300 text-white no-underline"
               >
                 Play
