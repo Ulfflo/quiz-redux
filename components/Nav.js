@@ -2,7 +2,7 @@ import Link from "next/link";
 import { IoIosMenu } from "react-icons/io";
 import { CiApple } from "react-icons/ci";
 import AdminModal from "./AdminModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import DarkModeButton from "./DarkModeBtn";
@@ -10,19 +10,34 @@ import DarkModeButton from "./DarkModeBtn";
 const Header = () => {
   const darkMode = useSelector((state) => state.darkMode);
   const router = useRouter();
-  const [showModal, setShowModal] = useState(false);
- 
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+  const [showModal, setShowModal] = useState(false); // Track login modal visibility
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
-    
+  useEffect(() => {
+    // Check if user is already logged in from browser storage on component mount
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    if (loggedIn === "true") {
+      setIsLoggedIn(true);
+    }
+  }, []); // Run only once on component mount
+
+  const handleAdminClick = () => {
+    // Check if the user is not logged in
+    if (!isLoggedIn) {
+      setShowModal(true); // Open the login modal
+    } else if (router.pathname === "/admin") {
+      // If the user is on the admin page, show the logout modal
+      setShowModal(true);
+    } else {
+      // Redirect to the admin page if logged in and not on admin page
+      router.push("/admin");
+    }
   };
 
-  const closeModal = () => {
+  const handleCloseModal = () => {
+    // Close the login modal
     setShowModal(false);
   };
-
-  const isAdminPage = router.pathname === "/admin";
 
   return (
     <header
@@ -50,10 +65,10 @@ const Header = () => {
             </Link>
 
             <button
-              onClick={showModal ? closeModal : toggleModal}
+              onClick={handleAdminClick}
               className="hover:text-gray-300 bg-green-600 border-none text-white no-underline text-xl"
             >
-              {isAdminPage ? "Close" : "Admin"}
+              {isLoggedIn ? "Logout" : "Admin"}
             </button>
           </div>
           <button className="md:hidden text-3xl bg-transparent border-none text-green-50">
@@ -61,8 +76,13 @@ const Header = () => {
           </button>
         </nav>
       </div>
-      {showModal && <AdminModal onClose={closeModal} />}
-      {/* Render the AdminModal component conditionally */}
+      {showModal && (
+        <AdminModal
+          onClose={handleCloseModal}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+        />
+      )}
     </header>
   );
 };
