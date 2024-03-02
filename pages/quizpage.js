@@ -4,7 +4,8 @@ import quizData from '@/data/quizData';
 
 const Quizpage = () => {
   return (
-    <div className='container mx-auto p-4'>
+    <div className='container mx-auto bg-slate-50'>
+        <h1 className='text-center p-4'>Question...</h1>
       <QuizComponent />
     </div>
   );
