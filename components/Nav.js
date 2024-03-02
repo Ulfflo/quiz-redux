@@ -32,7 +32,7 @@ const Header = () => {
       // Redirect to the admin page if logged in and not on admin page
       router.push("/admin");
     }
-  };
+  
 
   const handleCloseModal = () => {
     // Close the login modal
@@ -58,10 +58,16 @@ const Header = () => {
           <DarkModeButton />
           <div className="md:space-x-16 space-x-8 md:text-xl hidden md:flex  ">
             <Link
-              href="/"
+              href="/quizpage"
               className="hover:text-gray-300 text-white no-underline"
             >
               Play
+            </Link>
+            <Link
+              href="/topScores"
+              className="hover:text-gray-300 text-white no-underline"
+            >
+              ScoreBoard
             </Link>
 
             <button
@@ -86,5 +92,5 @@ const Header = () => {
     </header>
   );
 };
-
+}
 export default Header;

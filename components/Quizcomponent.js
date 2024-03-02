@@ -1,32 +1,44 @@
-const QuizComponent = () => {
-    return (
-      <div className="max-w-md mx-auto bg-green-400 rounded-lg overflow-hidden shadow-lg">
-        <div className="px-10 py-8">
-          <div className="font-bold text-2xl mb-4">Question 1</div>
-          <div className="grid grid-cols-2 gap-4">
-            <button className="flex items-center bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded relative top-[-4px]">
-              Option 1
-            </button>
-            <button className="flex items-center bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded relative top-[-4px]">
-              Option 2
-            </button>
-            <button className="flex items-center bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded relative top-[-4px]">
-              Option 3
-            </button>
-            <button className="flex items-center bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded relative top-[-4px]">
-              Option 4
-            </button>
-          </div>
-        </div>
-        <div className="px-10 py-6 bg-green-400">
-          <button className="flex align-middle bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">
-            Submit
-          </button>
-        </div>
-      </div>
-    );
+import React, { useState } from 'react';
+
+const QuizComponent = ({ quizData, currentQuestionIndex, onNextQuestion }) => {
+  const question = quizData[currentQuestionIndex];
+  const [answered, setAnswered] = useState(false);
+
+  const handleOptionClick = (optionIndex, isCorrect) => {
+    if (!answered) {
+      setAnswered(true);
+      if (isCorrect) {
+        document.getElementById(`option-${optionIndex}`).classList.add('bg-green-500');
+      } else {
+        document.getElementById(`option-${optionIndex}`).classList.add('bg-red-500');
+      }
+      setTimeout(() => {
+        onNextQuestion();
+      }, 1000);
+    }
   };
-  
-  export default QuizComponent;
-  
-  
+
+  return (
+    <div className="max-w-[600px] my-auto mx-auto bg-green-400 rounded-lg overflow-hidden shadow-lg">
+      <div className="px-10 py-8">
+        <h2 className="text-lg font-semibold">Question {question.id}</h2>
+        <p>{question.question}</p>
+        <div className="mt-4 grid grid-cols-2 gap-4">
+          {question.options.map((option, index) => (
+            <button
+              key={index}
+              id={`option-${index}`}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={() => handleOptionClick(index, option.isCorrect)}
+            >
+              {option.answer}
+            </button>
+          ))}
+        </div>
+        <p className="mt-4">ID: {question.id}</p>
+      </div>
+    </div>
+  );
+};
+
+export default QuizComponent;
