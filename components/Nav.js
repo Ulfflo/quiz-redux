@@ -11,11 +11,9 @@ const Header = () => {
   const darkMode = useSelector((state) => state.darkMode);
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
- 
 
   const toggleModal = () => {
     setShowModal(!showModal);
-    
   };
 
   const closeModal = () => {
@@ -47,6 +45,12 @@ const Header = () => {
               className="hover:text-gray-300 text-white no-underline"
             >
               Play
+            </Link>
+            <Link
+              href="/topScores"
+              className="hover:text-gray-300 text-white no-underline"
+            >
+              ScoreBoard
             </Link>
 
             <button
