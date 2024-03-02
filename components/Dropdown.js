@@ -1,42 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Dropdown = ({ open, trigger, menu }) => {
+const Dropdown = ({ trigger, menu }) => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="dropdown">
-      {trigger}
-      {open ? (
-        <ul className="menu">
-          {menu.map((menuItem, index) => (
-            <li key={index} className="menu-item">
-              {React.cloneElement(menuItem, {
-                onClick: () => {
-                  menuItem.props.onClick();
-                  setOpen(false);
-                },
-              })}
-            </li>
-          ))}
-        </ul>
-      ) : null}
+    <div className="relative inline-block">
+      {React.cloneElement(trigger, { onClick: () => setOpen(!open) })}
+      {open && (
+        <div className="absolute p-4 z-10 right-0 mt-2 w-[200px] bg-slate-50 rounded shadow-lg">
+          <ul className="p-2 list-none">
+            {menu.map((menuItem, index) => (
+              <li key={index} className="text-[18px] mb-6">
+                {menuItem}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
 
 export default Dropdown;
-
-//Så här såg den ut i main
-
-{
-  /* <Dropdown
-open={open}
-trigger={
-  <button onClick={handleOpen} onBlur={() => setOpen(false)}>
-    Dropdown
-  </button>
-}
-menu={[
-  <button onClick={handleMenuOne}>Menu 1</button>,
-  <button onClick={handleMenuTwo}>Menu 2</button>,
-]}
-/> */
-}
