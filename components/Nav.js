@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { IoIosMenu } from "react-icons/io";
 import AdminModal from "./AdminModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import DarkModeButton from "./DarkModeBtn";
@@ -10,16 +10,36 @@ import Dropdown from "./Dropdown";
 const Header = () => {
   const darkMode = useSelector((state) => state.darkMode);
   const router = useRouter();
-  const [showModal, setShowModal] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+  const [showModal, setShowModal] = useState(false); // Track login modal visibility
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
+  useEffect(() => {
+    // Check if user is already logged in from browser storage on component mount
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    if (loggedIn === "true") {
+      setIsLoggedIn(true);
+    }
+  }, []); // Run only once on component mount
 
-  const closeModal = () => {
+  const handleAdminClick = () => {
+    // Check if the user is not logged in
+    if (!isLoggedIn) {
+      setShowModal(true); // Open the login modal
+    } else if (router.pathname === "/admin") {
+      // If the user is on the admin page, show the logout modal
+      setShowModal(true);
+    } else {
+      // Redirect to the admin page if logged in and not on admin page
+      router.push("/admin");
+    }
+  
+
+  const handleCloseModal = () => {
+    // Close the login modal
     setShowModal(false);
   };
 
+<<<<<<< HEAD
   // ----------- DROPDROWN -------------\\
   const [open, setOpen] = useState(false);
 
@@ -31,6 +51,8 @@ const Header = () => {
 
   const isAdminPage = router.pathname === "/admin";
 
+=======
+>>>>>>> a471e19cd5ed134af6a7497c4bd252db2448ed3d
   return (
     <header
       className={`py-4 whitespace-nowrap ${
@@ -60,6 +82,7 @@ const Header = () => {
                 ScoreBoard{" "}
               </Link>
 
+<<<<<<< HEAD
               <button
                 onClick={showModal ? closeModal : toggleModal}
                 className={`hover:text-gray-300 border-none text-white no-underline text-[18px] ${
@@ -114,8 +137,29 @@ const Header = () => {
         </div>
       </div>
       {showModal && <AdminModal onClose={closeModal} />}
+=======
+            <button
+              onClick={handleAdminClick}
+              className="hover:text-gray-300 bg-green-600 border-none text-white no-underline text-xl"
+            >
+              {isLoggedIn ? "Logout" : "Admin"}
+            </button>
+          </div>
+          <button className="md:hidden text-3xl bg-transparent border-none text-green-50">
+            <IoIosMenu />
+          </button>
+        </nav>
+      </div>
+      {showModal && (
+        <AdminModal
+          onClose={handleCloseModal}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+        />
+      )}
+>>>>>>> a471e19cd5ed134af6a7497c4bd252db2448ed3d
     </header>
   );
 };
-
+}
 export default Header;

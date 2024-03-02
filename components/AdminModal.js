@@ -3,14 +3,14 @@ import { useRouter } from "next/router";
 import styles from "./AdminModal.module.css";
 import users from "@/data/users";
 
-const AdminModal = ({ onClose }) => {
+const AdminModal = ({ onClose, isLoggedIn, setIsLoggedIn }) => {
   const router = useRouter();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true); // Track loading state
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+  const [showLogoutModal, setShowLogoutModal] = useState(false); // Track logout modal visibility
 
   useEffect(() => {
     // Check if user is already logged in from browser storage
@@ -28,7 +28,7 @@ const AdminModal = ({ onClose }) => {
     if (user) {
       setIsLoggedIn(true);
       localStorage.setItem("isLoggedIn", "true"); // Store login state in browser storage
-     onClose(); // Close the modal after successful login
+      onClose(); // Close the modal after successful login
       router.push("/admin");
     } else {
       setError("Invalid username or password");
@@ -41,14 +41,16 @@ const AdminModal = ({ onClose }) => {
     setUsername("");
     setPassword("");
     setError("");
+    setShowLogoutModal(false); // Close the logout modal
     onClose(); // Close the modal after logout
-    router.push("/");
+    router.push("/"); // Redirect to home page after logout
   };
 
   const handleClose = () => {
     setUsername("");
     setPassword("");
     setError("");
+    setShowLogoutModal(false); // Close the logout modal
     onClose(); // Close the modal
   };
 
@@ -84,7 +86,6 @@ const AdminModal = ({ onClose }) => {
           </>
         ) : (
           <>
-            <p>Goodbye!</p>
             <button onClick={handleLogout}>Logout</button>
           </>
         )}
