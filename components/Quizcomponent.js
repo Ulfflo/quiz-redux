@@ -12,7 +12,7 @@ function QuizComponent() {
   const darkMode = useSelector((state) => state.darkMode);
 
   return (
-    <div className="container mx-auto p-4">
+    <div className=" p-4">
       <div className="flex justify-center items-center h-full">
         <div
           className={` ${
