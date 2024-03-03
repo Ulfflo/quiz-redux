@@ -61,13 +61,21 @@ const Header = () => {
             <div className="md:space-x-16 space-x-8 text-[18px] hidden md:flex  ">
               <Link
                 href="/quizpage"
-                className="hover:text-gray-300 text-slate-200 no-underline"
+                className={`hover:text-gray-300 no-underline ${
+                  darkMode
+                    ? "bg-blue text-green-100"
+                    : "bg-green-600 text-green-50"
+                } `}
               >
                 Play
               </Link>
               <Link
                 href="/topScores"
-                className="hover:text-gray-300 text-slate-200  no-underline"
+                className={`hover:text-gray-300 no-underline ${
+                  darkMode
+                    ? "bg-blue text-green-100"
+                    : "bg-green-600 text-green-50"
+                } `}
               >
                 ScoreBoard{" "}
               </Link>
