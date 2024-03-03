@@ -80,11 +80,12 @@ const Header = () => {
               <DarkModeButton />
             </div>
             <div className="md:hidden flex items-center space-x-2">
+              <DarkModeButton />
               <Dropdown
                 open={open}
                 trigger={
                   <button
-                    className=" flex justify-center items-center text-3xl bg-transparent border-none text-green-50"
+                    className=" flex justify-center items-center text-4xl bg-transparent border-none text-green-50 cursor-pointer"
                     onClick={handleOpen}
                     onBlur={() => setOpen(false)}
                   >
@@ -93,14 +94,18 @@ const Header = () => {
                 }
                 menu={[
                   <Link
-                    className="no-underline text-green-600 hover:font-bold "
+                    className={`no-underline hover:font-bold ${
+                      darkMode ? " text-green-100" : " text-green-600"
+                    } `}
                     href="/"
                     passHref
                   >
                     Play
                   </Link>,
                   <Link
-                    className="no-underline text-green-600"
+                    className={`no-underline hover:font-bold ${
+                      darkMode ? " text-green-100" : " text-green-600"
+                    } `}
                     href="/topScores"
                     passHref
                   >
@@ -110,11 +115,14 @@ const Header = () => {
                     onClick={handleAdminClick}
                     isAdminPage={isAdminPage}
                     darkMode={darkMode}
-                    className="bg-slate-50 border-none text-green-600 text-[18px] cursor-pointer pl-0.5"
+                    className={` border-none  text-[14px] cursor-pointer pl-0.5 hover:font-bold ${
+                      darkMode
+                        ? "bg-sky-950 text-green-100"
+                        : "bg-white text-green-600"
+                    }`}
                   />,
                 ]}
               />
-              <DarkModeButton />
             </div>
           </nav>
         </div>

@@ -62,32 +62,45 @@ const AdminModal = ({ onClose, isLoggedIn, setIsLoggedIn }) => {
     <div className={styles.modalOverlay} onClick={handleClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         {!isLoggedIn ? (
-          <>
-            <div className="form-group">
+          <div className="flex flex-col justify-center items-center space-y-4 text-center">
+            <div className="flex-col flex form-group space-y-2 ">
               <label htmlFor="username">Username:</label>
               <input
+                className="rounded h-[26px] w-[140px] border-solid border-gray-400 pl-2 focus:outline-green-600"
                 type="text"
                 id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className="flex-col flex form-group space-y-2 ">
               <label htmlFor="password">Password:</label>
               <input
+                className="rounded h-[26px] w-[140px] border-solid border-gray-400 pl-2 focus:outline-green-600"
                 type="password"
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button onClick={handleLogin}>Login</button>
+            <button
+              className="bg-[#40a748] text-[14px] text-white border-none rounded-lg py-3 px-8 active:opacity-80"
+              onClick={handleLogin}
+            >
+              Log in
+            </button>
             {error && <p className="error-message">{error}</p>}
-          </>
+          </div>
         ) : (
-          <>
-            <button onClick={handleLogout}>Logout</button>
-          </>
+          <div className="space-y-8 flex-col text-center ">
+            <p>You will now leave admin</p>
+            <button
+              className="bg-[#40a748] text-[14px] text-white border-none rounded-lg py-3 px-8 active:opacity-80"
+              onClick={handleLogout}
+            >
+              Log out{" "}
+            </button>
+          </div>
         )}
       </div>
     </div>
