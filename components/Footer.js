@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 const Footer = () => {
   const darkMode = useSelector((state) => state.darkMode);
   return (
-    <footer className={`${darkMode ? "bg-dark" : "bg-slate-50"} w-full `}>
+    <footer className={`${darkMode ? "bg-dark" : "bg-slate-50"} w-full`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
@@ -21,11 +21,11 @@ const Footer = () => {
       <div
         className={`mx-auto ${
           darkMode ? "bg-blue" : "bg-green-600"
-        } text-white`}
+        } text-white p-10 `}
       >
-        <div className="flex flex-wrap justify-between">
-          <div className="w-full md:w-1/4">
-            <h2 className="text-lg mb-4 font-serif">About</h2>
+        <div className="flex flex-wrap justify-between p-10">
+          <div className="w-full md:w-1/4 md:mb-0 mb-10 ">
+            <h2 className="text-lg mb-4 font-serif ">About</h2>
             <p className="font-serif">
               We're a group of students embarking on our first quiz adventure!
               🚀 Join us on this exciting journey!
@@ -47,7 +47,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="text-white hover:text-green-800 no-underline font-serif"
                 >
                   Quiz
@@ -104,7 +104,7 @@ const Footer = () => {
           </div>
         </div>
         <br className="my-6 border-green-800" />
-        <div className="text-center text-sm font-serif">
+        <div className="text-center text-sm font-serif p-10">
           &copy; {new Date().getFullYear()} Emelie, Karolina, Josh, Åsa & Ulf:
           Apple Group. All rights reserved. ✌️
         </div>
