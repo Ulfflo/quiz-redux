@@ -6,10 +6,8 @@ const Layout = ({ children }) => {
   return (
     <div
       className={` ${
-        darkMode
-          ? " bg-slate-950 ring-2 text-teal-100 ring-teal-500 ring-opacity-90"
-          : "bg-slate-50"
-      } min-h-[500px] flex items-center justify-center content-center w-full`}
+        darkMode ? " bg-dark text-teal-100" : "bg-slate-50"
+      } min-h-[500px] flex items-center justify-center content-center w-full py-4`}
     >
       <Head>
         <title>Apple Quiz</title>

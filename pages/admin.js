@@ -93,8 +93,8 @@ export default function Admin() {
             {questions.map((item, index) => (
               <div
                 className={`${
-                  darkMode ? "bg-sky-950" : " bg-green-400"
-                } w-[400px] p-8 mb-8 rounded-xl relative`}
+                  darkMode ? "bg-sky-950 ring-4 ring-black " : "bg-green-400"
+                } w-[400px] p-8 mb-8 rounded-xl relative shadow-lg ring-4 ring-black `}
                 key={index}
                 id={item.id}
               >
@@ -172,7 +172,7 @@ border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opac
                       <button
                         className={` ${
                           darkMode
-                            ? "border-emerald-500 text-emerald-400"
+                            ? "border-turcose text-turcose"
                             : "border-green-600 text-green-700"
                         }                 
                  border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opacity-50`}
@@ -201,7 +201,7 @@ border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opac
             <button
               className={` ${
                 darkMode
-                  ? "border-blue-500 text-blue-400"
+                  ? "border-sky-500 text-sky-400"
                   : "border-blue-600 text-blue-700"
               }                 
                border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opacity-50`}

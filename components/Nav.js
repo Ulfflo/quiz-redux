@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import DarkModeButton from "./DarkModeBtn";
-import Dropdown from "./Dropdown";  
+import Dropdown from "./Dropdown";
 import AdminButton from "./AdminButton";
 
 const Header = () => {
@@ -14,7 +14,6 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
   const [showModal, setShowModal] = useState(false); // Track login modal visibility
 
-  
   const handleAdminClick = () => {
     // Check if the user is not logged in
     if (!isLoggedIn) {
@@ -44,12 +43,10 @@ const Header = () => {
 
   // ----------------------------------- \\
 
- 
-
   return (
     <header
       className={`py-4 whitespace-nowrap ${
-        darkMode ? "bg-teal-900 text-green-100" : "bg-green-600 text-green-50"
+        darkMode ? "bg-blue text-green-100" : "bg-green-600 text-green-50"
       } `}
     >
       <div className="flex justify-center items-center">
@@ -64,13 +61,13 @@ const Header = () => {
             <div className="md:space-x-16 space-x-8 text-[18px] hidden md:flex  ">
               <Link
                 href="/quizpage"
-                className="hover:text-gray-300 text-white no-underline"
+                className="hover:text-gray-300 text-slate-200 no-underline"
               >
                 Play
               </Link>
               <Link
-                href="/"
-                className="hover:text-gray-300 text-white no-underline"
+                href="/topScores"
+                className="hover:text-gray-300 text-slate-200  no-underline"
               >
                 ScoreBoard{" "}
               </Link>
@@ -96,7 +93,7 @@ const Header = () => {
                 }
                 menu={[
                   <Link
-                    className="no-underline text-green-600 hover:font-bold"
+                    className="no-underline text-green-600 hover:font-bold "
                     href="/"
                     passHref
                   >
@@ -104,7 +101,7 @@ const Header = () => {
                   </Link>,
                   <Link
                     className="no-underline text-green-600"
-                    href="/scoreboard"
+                    href="/topScores"
                     passHref
                   >
                     ScoreBoard
