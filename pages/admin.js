@@ -98,13 +98,13 @@ export default function Admin() {
             <button
               className={` ${
                 darkMode
-                  ? "border-blue-500 text-blue-400"
-                  : "border-blue-600 text-blue-700"
+                  ? "border-cyan-500 text-cyan-300"
+                  : " border-green-500 text-green-600"
               }                 
                border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opacity-50`}
               onClick={handleAddQuestion}
             >
-              Add Question
+              + Add Question
             </button>
           </div>
 
