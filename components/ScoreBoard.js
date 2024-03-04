@@ -13,16 +13,19 @@ function ScoreBoard() {
   return (
     <div
       className={`${
-        darkMode ? "bg-sky-950" : " bg-green-400"
-      } w-[400px] p-8 m-20 rounded-xl relative flex-col`}
+        darkMode ? "bg-sky-950" : " bg-green-200"
+      } w-[400px] p-8 mt-8 rounded-xl relative flex-col`}
     >
-      <h2 className="text-2xl font-bold mb-10 text-center">Top 5 Scores! </h2>
+      <h2 className="text-2xl font-bold mb-10 text-center">
+        Top Five Scores!{" "}
+      </h2>
       <ul className="list-none">
         {topFiveScores &&
           topFiveScores.map((player, index) => (
             <li key={index} className="m-5 text-xl">
               <span>{index + 1}. </span>
               {player.name}: {player.score} <span>p</span>
+              <hr className="border-solid border-green-400 mt-4 mr-8" />
             </li>
           ))}
       </ul>
