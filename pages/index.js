@@ -48,7 +48,7 @@ export default function Home() {
               <Link
                 href="/quizpage"
                 onClick={() => handleStartQuiz()}
-                className="bg-[#40a748] text-white border-none rounded-lg py-3 px-8"
+                className="bg-[#40a748] text-white border-none rounded-lg py-2 px-8 link no-underline"
               >
                 Start Quiz
               </Link>
