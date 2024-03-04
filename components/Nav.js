@@ -13,6 +13,7 @@ const Header = () => {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
   const [showModal, setShowModal] = useState(false); // Track login modal visibility
+  const [open, setOpen] = useState(false);
 
   const handleAdminClick = () => {
     // Check if the user is not logged in
@@ -33,15 +34,6 @@ const Header = () => {
   };
 
   const isAdminPage = router.pathname === "/admin";
-
-  // ----------- DROPDROWN -------------\\
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(!open);
-  };
-
-  // ----------------------------------- \\
 
   return (
     <header
@@ -92,11 +84,7 @@ const Header = () => {
               <Dropdown
                 open={open}
                 trigger={
-                  <button
-                    className=" flex justify-center items-center text-4xl bg-transparent border-none text-green-50 cursor-pointer"
-                    onClick={handleOpen}
-                    onBlur={() => setOpen(false)}
-                  >
+                  <button className=" flex justify-center items-center text-4xl bg-transparent border-none text-green-50 cursor-pointer">
                     <IoIosMenu />
                   </button>
                 }
