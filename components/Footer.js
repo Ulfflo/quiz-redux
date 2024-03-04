@@ -21,7 +21,7 @@ const Footer = () => {
       <div
         className={`mx-auto ${
           darkMode ? "bg-blue" : "bg-green-600"
-        } text-white p-10 `}
+        } text-slate-300 p-10 `}
       >
         <div className="flex flex-wrap justify-between p-10">
           <div className="w-full md:w-1/4 md:mb-0 mb-10 ">
@@ -31,24 +31,24 @@ const Footer = () => {
               🚀 Join us on this exciting journey!
             </p>
           </div>
-          <div className="w-full md:w-1/4">
-            <ul className="text-sm list-none">
+          <div className="w-full md:w-1/4 mb-4">
+            <ul className="text-sm list-none ">
               <li>
-                <h2 className="text-lg mb-4 font-serif">Contact</h2>
+                <h2 className="text-lg mb-2 font-serif">Contact</h2>
               </li>
               <li className="font-serif">Phone: 123-456-789</li>
               <li className="font-serif">Email: info@apple.se</li>
             </ul>
           </div>
-          <div className="w-full md:w-1/4">
-            <ul className="text-sm list-none">
+          <div className="w-full md:w-1/4 mb-4">
+            <ul className="text-sm list-none ">
               <li>
-                <h2 className="text-lg mb-4 font-serif">Links</h2>
+                <h2 className="text-lg mb-2 font-serif">Links</h2>
               </li>
               <li>
                 <a
                   href="/"
-                  className="text-white hover:text-green-800 no-underline font-serif"
+                  className=" text-slate-300 hover:text-green-800 no-underline font-serif "
                 >
                   Quiz
                 </a>
@@ -56,7 +56,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-white hover:text-green-800 no-underline font-serif"
+                  className="text-slate-300 hover:text-green-800 no-underline font-serif"
                 >
                   Admin
                 </a>
@@ -64,22 +64,22 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-white hover:text-green-800 no-underline font-serif"
+                  className="text-slate-300 hover:text-green-800 no-underline font-serif"
                 >
                   Contact developers
                 </a>
               </li>
             </ul>
           </div>
-          <div className="w-full md:w-1/4">
-            <ul className="text-sm list-none">
+          <div className="w-full md:w-1/4 ">
+            <ul className="text-sm list-none ">
               <li>
-                <h2 className="text-lg mb-4 font-serif">Follow us</h2>
+                <h2 className="text-lg mb-2 font-serif">Follow us</h2>
               </li>
               <li>
                 <a
                   href="#"
-                  className="text-white hover:text-green-800 no-underline font-serif"
+                  className="text-slate-300 hover:text-green-800 no-underline font-serif"
                 >
                   Linkedin
                 </a>
@@ -87,7 +87,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-white hover:text-green-800 no-underline font-serif"
+                  className="text-slate-300 hover:text-green-800 no-underline font-serif"
                 >
                   Twitter
                 </a>
@@ -95,7 +95,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-white hover:text-green-800 no-underline font-serif"
+                  className="text-slate-300 hover:text-green-800 no-underline font-serif"
                 >
                   Instagram
                 </a>
@@ -104,7 +104,7 @@ const Footer = () => {
           </div>
         </div>
         <br className="my-6 border-green-800" />
-        <div className="text-center text-sm font-serif p-10">
+        <div className="text-center text-sm font-serif p-4">
           &copy; {new Date().getFullYear()} Emelie, Karolina, Josh, Åsa & Ulf:
           Apple Group. All rights reserved. ✌️
         </div>
