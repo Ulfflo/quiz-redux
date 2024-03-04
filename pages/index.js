@@ -43,7 +43,7 @@ export default function Home() {
                 placeholder="Enter your name to get started"
                 value={name}
                 onChange={(e) => handleInputChange(e)}
-                className="bg-white border border-green-500 border-solid rounded-lg py-2 px-2 w-[240px] focus: outline-1 focus:outline-green-500 mr-2"
+                className="bg-white border border-green-500 border-solid rounded-lg py-2 px-2 md:w-auto focus: outline-1 focus:outline-green-500 mr-2"
               ></input>
               <Link
                 href="/quizpage"
