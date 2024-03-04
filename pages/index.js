@@ -10,8 +10,8 @@ export default function Home() {
         <div className="flex items-center">
           <div className="flex-col">
             <div className="text-left">
-              <h1 className="mb-2 text-[42px]">Dare to test your intellect?</h1>
-              <h2 className="mb-6 mt-6 text-[16px] text-gray-500 font-thin">
+              <h1 className="mb-2 text-[48px]">Dare to test your intellect?</h1>
+              <h2 className="mb-6 mt-6 text-[16px] opacity-80 font-thin">
                 {" "}
                 Take our quiz now and prove what you got!
               </h2>
@@ -25,12 +25,12 @@ export default function Home() {
                 Start Quiz
               </button>
             </div>
-            <div className="flex-start mt-2 text-[14px]">
-              <span className=" text-gray-500 mr-2">
+            <div className="flex mt-2 text-[14px]">
+              <span className=" opacity-80 flex justify-center ml-0 mr-4">
                 <FaRegCircleCheck className="text-[#40a748] mr-1" />
-                Get 10 common knowledge questions{" "}
+                Get 10 challenging questions{" "}
               </span>
-              <span className=" text-gray-500">
+              <span className=" opacity-80 flex justify-center ml-0">
                 <FaRegCircleCheck className="mr-1 text-[#40a748]" />
                 Go for the highscore{" "}
               </span>
