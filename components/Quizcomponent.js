@@ -8,6 +8,7 @@ import { addScoreToScoreboard } from "@/redux/addToScoreboard";
 function QuizComponent() {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [questionCount, setQuestionCount] = useState(1); 
   const dispatch = useDispatch();
   const name = useSelector(selectName);
   const points = useSelector(selectPoints);
@@ -17,6 +18,7 @@ function QuizComponent() {
       dispatch(setPoints(points + 1));
     }
     setCurrentQuestion(currentQuestion + 1);
+    setQuestionCount(questionCount + 1); 
   };
 
   const darkMode = useSelector((state) => state.darkMode);
@@ -39,13 +41,15 @@ function QuizComponent() {
   if (currentQuestion >= questions.length) {
     saveScoreToScoreboard();
     return (
-      <div>
-        <p>Your score {points} /10</p>{" "}
-        <p>
-          <Link href="/topScores">Click here to see the ScoreBoard</Link>
-        </p>
-      </div>
-    );
+        <div className={`text-center p-16 ${darkMode ? 'bg-sky-950 text-white border border-white rounded-lg' : 'bg-green-500 text-white border border-white rounded-lg'}`}>
+          <p className="mb-4">Your score {points} /10</p>{" "}
+          <p>
+            <Link href="/topScores" className={` ${darkMode ? 'text-white' : 'text-white'}`}>Scoreboard</Link>
+          </p>
+        </div>
+      );
+      
+      
   }
 
   return (
@@ -57,7 +61,7 @@ function QuizComponent() {
           } w-10/12 h-4/5 rounded-lg`}
         >
           <h1 className="text-white text-center text-xl font-bold p-6 border-b-4 border-slate-300">
-            Question {questions[currentQuestion].id}:{" "}
+            Question {questionCount}: 
             {questions[currentQuestion].question}
           </h1>
           <div className="grid grid-cols-2 gap-4 justify-center p-8">
@@ -81,3 +85,4 @@ function QuizComponent() {
 }
 
 export default QuizComponent;
+
