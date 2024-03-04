@@ -14,7 +14,7 @@ function ScoreBoard() {
     <div
       className={`${
         darkMode ? "bg-sky-950" : " bg-green-200"
-      } w-[400px] p-8 mt-8 rounded-xl relative flex-col`}
+      } md:w-[400px] w-[300px] p-8 mt-8 rounded-xl relative flex-col`}
     >
       <h2 className="text-2xl font-bold mb-10 text-center">
         Top Five Scores!{" "}
