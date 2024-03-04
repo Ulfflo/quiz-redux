@@ -5,37 +5,39 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 
 export default function Home() {
   return (
-    <main className="flex items-center justify-center">
+    <main>
       <Layout>
         <div className="flex items-center">
-          <div className="flex-col">
-            <div className="text-left">
+          {/* container text left */}
+          <div className="flex-col justify-center text-center md:text-left md:ml-8">
+            <div className="">
               <h1 className="mb-2 text-[48px]">Dare to test your intellect?</h1>
-              <h2 className="mb-6 mt-6 text-[16px] opacity-80 font-thin">
+              <h2 className="mb-6 mt-6 text-[16px] font-thin opacity-80">
                 {" "}
                 Take our quiz now and prove what you got!
               </h2>
             </div>
-            <div className="text-left mb-4">
+            <div className="text-center mb-4 md:text-left whitespace-nowrap">
               <input
                 placeholder="Enter your name to get started"
-                className="bg-white border border-green-500 border-solid rounded-lg py-2 px-2 w-[240px] focus: outline-1 focus:outline-green-500 mr-2"
+                className="bg-white border border-green-500 border-solid rounded-lg py-3 px-2 md:w-[240px] w-[200px] focus: outline-1 focus:outline-green-500 mr-2"
               ></input>
-              <button className="bg-[#40a748] text-white border-none rounded-lg py-3 px-8">
+              <button className="bg-[#40a748] text-white border-none rounded-lg py-4 px-8">
                 Start Quiz
               </button>
             </div>
-            <div className="flex mt-2 text-[14px]">
-              <span className=" opacity-80 flex justify-center ml-0 mr-4">
+            <div className="flex-start mt-2 text-[14px] opacity-80">
+              <span className="  mr-2">
                 <FaRegCircleCheck className="text-[#40a748] mr-1" />
-                Get 10 challenging questions{" "}
+                Get 10 common knowledge questions{" "}
               </span>
-              <span className=" opacity-80 flex justify-center ml-0">
+              <span className=" ">
                 <FaRegCircleCheck className="mr-1 text-[#40a748]" />
                 Go for the highscore{" "}
               </span>
             </div>
           </div>
+          {/* container apple image right */}
           <div className="w-1/2 hidden md:flex">
             <Image
               className="h-auto w-[400px]"
