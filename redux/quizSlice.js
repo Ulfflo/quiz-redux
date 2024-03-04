@@ -52,4 +52,7 @@ export const {
   editQuestion,
   deleteQuestion,
 } = quizSlice.actions;
+
+export const selectQuizData = (state) => state.quiz.quizData;
+
 export default quizSlice.reducer;
