@@ -2,6 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import loginReducer from "./redux/login";
 import darkModeReducer from "./redux/darkMode";
 import quizReducer from "./redux/quizSlice";
+import pointCountReducer from "./redux/pointCount";
+import scoreboardReducer from "./redux/addToScoreboard";
 
 export const store = configureStore({
   reducer: {
@@ -9,6 +11,8 @@ export const store = configureStore({
     login: loginReducer,
     darkMode: darkModeReducer,
     quiz: quizReducer,
+    pointCount: pointCountReducer,
+    scoreboard: scoreboardReducer,
   },
 });
 

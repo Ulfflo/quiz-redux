@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux";
-import playerScores from "@/data/playerScores";
+import { selectPlayerScores } from "@/redux/addToScoreboard";
 
 function ScoreBoard() {
   const darkMode = useSelector((state) => state.darkMode);
+  const playerScores = useSelector(selectPlayerScores);
 
-  const sortedScores = playerScores.slice().sort((a, b) => b.score - a.score);
+  const sortedScores = Array.isArray(playerScores)
+    ? [...playerScores].sort((a, b) => b.score - a.score)
+    : [];
 
   const topFiveScores = sortedScores.slice(0, 5);
   return (

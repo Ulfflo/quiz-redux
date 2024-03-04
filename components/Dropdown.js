@@ -14,9 +14,9 @@ const Dropdown = ({ trigger, menu }) => {
             darkMode ? "bg-sky-950  " : "bg-white"
           } `}
         >
-          <ul className="p-2 list-none">
+          <ul className=" p-2 list-none">
             {menu.map((menuItem, index) => (
-              <li key={index} className="text-[14px] mb-6 ">
+              <li key={index} className="text-[14px] m-4 ">
                 {menuItem}
               </li>
             ))}
