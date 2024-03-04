@@ -16,8 +16,13 @@ const Dropdown = ({ trigger, menu }) => {
         >
           <ul className=" p-2 list-none">
             {menu.map((menuItem, index) => (
-              <li key={index} className="text-[14px] m-4 ">
-                {menuItem}
+              <li key={index} className="text-[16px] mb-6">
+                {React.cloneElement(menuItem, {
+                  onClick: () => {
+                    menuItem.props.onClick();
+                    setOpen(false);
+                  },
+                })}
               </li>
             ))}
           </ul>

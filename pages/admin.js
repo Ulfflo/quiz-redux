@@ -115,7 +115,7 @@ export default function Admin() {
                   darkMode
                     ? "bg-sky-950"
                     : " bg-[#abe8c0] border-solid border border-green-200"
-                } w-[400px] p-8 mb-8 rounded-xl relative`}
+                } md:w-[400px] md:max-w-[400px] text-[14px] md:text-[16px] p-8 mb-8 rounded-xl relative max-w-[300px]`}
                 key={index}
                 id={item.id}
               >
@@ -177,7 +177,7 @@ border-solid  whitespace-nowrap bg-transparent  rounded-lg px-4 py-1 active:opac
                 ) : (
                   <>
                     <p className="mb-4 max-w-[380px]">{item.question}</p>
-                    <div className="text-green-600 text-[16px] opacity-60 absolute top-4 right-4 space-x-2">
+                    <div className="hidden md:flex text-green-600 text-[16px] opacity-60 absolute top-4 right-4 space-x-2">
                       id{item.id}{" "}
                     </div>
                     <ul className="list-none">

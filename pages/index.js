@@ -26,18 +26,19 @@ export default function Home() {
   };
 
   return (
-    <main className="flex items-center justify-center">
+    <main>
       <Layout>
         <div className="flex items-center">
-          <div className="flex-col">
-            <div className="text-left">
-              <h1 className="mb-2 text-[42px]">Dare to test your intellect?</h1>
-              <h2 className="mb-6 mt-6 text-[16px] text-gray-500 font-thin">
+          {/* container text left */}
+          <div className="flex-col justify-center text-center md:text-left md:ml-8">
+            <div className="">
+              <h1 className="mb-2 text-[48px]">Dare to test your intellect?</h1>
+              <h2 className="mb-6 mt-6 text-[16px] font-thin opacity-80">
                 {" "}
                 Take our quiz now and prove what you got!
               </h2>
             </div>
-            <div className="text-left mb-4">
+            <div className="text-center mb-4 md:text-left whitespace-nowrap">
               <input
                 placeholder="Enter your name to get started"
                 value={name}
@@ -52,17 +53,18 @@ export default function Home() {
                 Start Quiz
               </Link>
             </div>
-            <div className="flex-start mt-2 text-[14px]">
-              <span className=" text-gray-500 mr-2">
+            <div className="flex-start mt-2 text-[14px] opacity-80">
+              <span className="  mr-2">
                 <FaRegCircleCheck className="text-[#40a748] mr-1" />
                 Get 10 common knowledge questions{" "}
               </span>
-              <span className=" text-gray-500">
+              <span className=" ">
                 <FaRegCircleCheck className="mr-1 text-[#40a748]" />
                 Go for the highscore{" "}
               </span>
             </div>
           </div>
+          {/* container apple image right */}
           <div className="w-1/2 hidden md:flex">
             <Image
               className="h-auto w-[400px]"
