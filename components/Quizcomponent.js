@@ -65,7 +65,7 @@ function QuizComponent() {
 
   return (
     <div className=" p-4 ">
-      <div className="flex justify-center items-center h-full ">
+      <div className="flex justify-center items-center h-full min-w-[400px] md:min-w-[800px]">
         <div
           className={`   ${
             darkMode ? "bg-sky-950" : "bg-green-500"
@@ -74,14 +74,14 @@ function QuizComponent() {
           <h1 className="text-white text-center text-xl font-bold p-6 border-b-4 border-slate-300 ">
             Question {questionCount}:{questions[currentQuestion].question}
           </h1>
-          <div className="grid grid-cols-2 gap-4 justify-center p-8 min-w-[800px]">
+          <div className="grid grid-cols-2 gap-4 justify-center p-8  ">
             {questions[currentQuestion].options.map((option, index) => (
               <button
                 key={index}
                 className={` ${
                   darkMode ? "bg-sky-800" : "bg-green-500 border-green-800"
                 } text-white font-semibold px-6 py-3 rounded-md w-full border-solid shadow-xl `}
-                style={{ minWidth: "150px" }}
+                // style={{ minWidth: "150px" }}
                 onClick={() => handleNextQuestion(option.isCorrect)}
               >
                 {option.answer}
