@@ -2,8 +2,29 @@ import Layout from "@/components/Layout";
 import Image from "next/image";
 import AppleLogo from "../public/AppleLogo.png";
 import { FaRegCircleCheck } from "react-icons/fa6";
+import { setName, selectName } from "@/redux/pointCount";
+import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
+Link;
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  // const name = useSelector((state) => state.pointCount.name);
+  const name = useSelector(selectName);
+
+  const handleInputChange = (e) => {
+    dispatch(setName(e.target.value));
+  };
+
+  const handleStartQuiz = () => {
+    if (name) {
+      // dispatch(setName(name));
+      router.push("/quizpage");
+    }
+  };
+
   return (
     <main>
       <Layout>
@@ -20,11 +41,17 @@ export default function Home() {
             <div className="text-center mb-4 md:text-left whitespace-nowrap">
               <input
                 placeholder="Enter your name to get started"
-                className="bg-white border border-green-500 border-solid rounded-lg py-3 px-2 md:w-[240px] w-[200px] focus: outline-1 focus:outline-green-500 mr-2"
+                value={name}
+                onChange={(e) => handleInputChange(e)}
+                className="bg-white border border-green-500 border-solid rounded-lg py-2 px-2 w-[240px] focus: outline-1 focus:outline-green-500 mr-2"
               ></input>
-              <button className="bg-[#40a748] text-white border-none rounded-lg py-4 px-8">
+              <Link
+                href="/quizpage"
+                onClick={() => handleStartQuiz()}
+                className="bg-[#40a748] text-white border-none rounded-lg py-3 px-8"
+              >
                 Start Quiz
-              </button>
+              </Link>
             </div>
             <div className="flex-start mt-2 text-[14px] opacity-80">
               <span className="  mr-2">
