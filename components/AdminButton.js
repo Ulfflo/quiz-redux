@@ -2,7 +2,7 @@ const AdminButton = ({ onClick, isAdminPage, darkMode, className }) => {
   let buttonClassName = "";
 
   if (!className) {
-    buttonClassName = `hover:text-gray-300 border-none text-[18px] cursor-pointer rounded-sm ${
+    buttonClassName = `hover:text-gray-300 border-none text-[16px] cursor-pointer rounded-sm ${
       darkMode ? "bg-blue text-green-100" : "bg-green-600 text-green-50"
     }`;
   } else {

@@ -50,7 +50,7 @@ const Header = () => {
         </div>
         <div className="md:flex space-x-8 items-center hidden">
           <Link
-            href="/quizpage"
+            href="/"
             className={`hover:text-gray-300 no-underline ${
               darkMode ? "bg-blue text-green-100" : "bg-green-600 text-green-50"
             } `}
@@ -101,7 +101,7 @@ const Header = () => {
                 Play
               </Link>,
               <Link
-                className={`no-underline hover:font-bold ${
+                className={`no-underline hover:font-bold  ${
                   darkMode ? " text-green-100" : " text-green-600"
                 } `}
                 href="/topScores"
@@ -113,7 +113,7 @@ const Header = () => {
                 onClick={handleAdminClick}
                 isAdminPage={isAdminPage}
                 darkMode={darkMode}
-                className={` border-none  text-[14px] cursor-pointer pl-0.5 hover:font-bold ${
+                className={` border-none  text-[16px] cursor-pointer pl-0.5 hover:font-bold ${
                   darkMode
                     ? "bg-sky-950 text-green-100"
                     : "bg-white text-green-600"
